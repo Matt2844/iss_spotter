@@ -1,19 +1,24 @@
 // index.js
 
-const fetchMyIP = (callback) => {
 
-}
+// const { fetchMyIP } = require('./iss');
+// const { fetchCoordsByIP } = require('./iss')
 
+// fetchMyIP((error, ip) => {
+//   if (error) {
+//     console.log("It didn't work!", error);
+//     return;
+//   }
 
-const { fetchMyIP } = require('./iss');
+//   console.log('It worked! Returned IP:', ip);
+// });
 
-fetchMyIP((error, ip) => {
+const { nextISSTimesForMyLocation } = require('./iss');
+
+nextISSTimesForMyLocation((error, passTimes) => {
   if (error) {
-    console.log("It didn't work!", error);
-    return;
+    return console.log("It didn't work!", error);
   }
-
-  console.log('It worked! Returned IP:', ip);
+  // success, print out the deets!
+  console.log(passTimes);
 });
-
-module.exports = { fetchMyIP }
